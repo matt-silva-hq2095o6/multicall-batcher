@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multicall-batcher"
+version = "0.2.1"
+description = "Pack EVM read calls into Multicall3 chunks with adaptive sizing and retry logic"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Alex K", email = "alex.k@protonmail.com" }]
+dependencies = [
+    "httpx>=0.25.2",
+    "eth-abi>=4.2.0",
+    "eth-utils>=2.2.0",
+]
+
+[project.scripts]
+multicall-batcher = "multicall_batcher.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.1",
+    "ruff>=0.1.8",
+    "web3>=6.11.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
